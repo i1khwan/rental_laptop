@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking {{ laptop.name }}</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(to bottom, #f0f4f8, #ffffff);
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 50px 20px;
+        }
+
+        .booking-card {
+            background-color: #ffffffcc; /* semi-transparent white */
+            padding: 40px;
+            border-radius: 12px;
+            width: 100%;
+            max-width: 500px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #2c3e50;
+        }
+
+        form label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #555;
+        }
+
+        form input[type="text"],
+        form input[type="date"],
+        form textarea {
+            width: 100%;
+            padding: 12px 15px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        form input:focus,
+        form textarea:focus {
+            border-color: #4CAF50;
+            outline: none;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            background-color: #4CAF50;
+            color: white;
+            font-size: 1rem;
+            font-weight: bold;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        .back-link {
+            display: block;
+            margin-top: 20px;
+            text-align: center;
+            color: #3498db;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        .back-link:hover {
+            color: #2c80b4;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="booking-card">
+        <h1>Booking {{ laptop.brand }} {{ laptop.name }}</h1>
+        <form method="post">
+            {% csrf_token %}
+            
+            <label>Nama:</label>
+            <input type="text" name="customer_name" placeholder="Masukkan nama lengkap" required>
+            
+            <label>Alamat:</label>
+            <textarea name="customer_address" placeholder="Masukkan alamat lengkap" required></textarea>
+            
+            <label>Tanggal Sewa:</label>
+            <input type="date" name="rental_date" required>
+            
+            <label>Pin Lokasi:</label>
+            <input type="text" name="location_pin" placeholder="Masukkan kode lokasi" required>
+            
+            <button type="submit">Booking Sekarang</button>
+        </form>
+
+        <a class="back-link" href="{% url 'laptop_list' %}">Kembali ke daftar laptop</a>
+    </div>
+
+</body>
+</html>
