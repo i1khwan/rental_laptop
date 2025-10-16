@@ -11,7 +11,7 @@ __pycache__/
 *.sqlite3
 
 # Env
-venv/
+myenv/
 .env
 .idea/
 .vscode/
