@@ -91,43 +91,46 @@
 <body>
     <h1>Daftar Laptop</h1>
     <table>
-    <tr>
-        <th>Gambar</th>
-        <th>Nama</th>
-        <th>Merk</th>
-        <th>Kategori</th>
-        <th>Harga per Hari</th>
-        <th>Stok</th>
-        <th>Booking</th>
-    </tr>
-    {% for laptop in laptops %}
-    <tr>
-        <td>
-            {% if laptop.image %}
-                <img src="{{ laptop.image.url }}" alt="{{ laptop.name }}">
-            {% else %}
-                Tidak ada gambar
-            {% endif %}
-        </td>
-        <td>{{ laptop.name }}</td>
-        <td>{{ laptop.brand }}</td>
-        <td>
-            {% if laptop.category == "entry" %}
-                Entry Level
-            {% elif laptop.category == "mid" %}
-                Mid End
-            {% elif laptop.category == "high" %}
-                High End
-            {% endif %}
-        </td>
-        <td>Rp {{ laptop.price_formatted }}</td>
-        <td>{{ laptop.stock }}</td>
-        <td>
-            <a class="button" href="{% url 'booking' laptop.id %}">Booking</a>
-        </td>
-    </tr>
-    {% endfor %}
-    </table>
+<tr>
+    <th>Gambar</th>
+    <th>Nama</th>
+    <th>Merk</th>
+    <th>Kategori</th>
+    <th>Deskripsi</th>
+    <th>Harga per Hari</th>
+    <th>Stok</th>
+    <th>Booking</th>
+</tr>
+{% for laptop in laptops %}
+<tr>
+    <td>
+        {% if laptop.image %}
+            <img src="{{ laptop.image.url }}" alt="{{ laptop.name }}">
+        {% else %}
+            Tidak ada gambar
+        {% endif %}
+    </td>
+    <td>{{ laptop.name }}</td>
+    <td>{{ laptop.brand }}</td>
+    <td>
+        {% if laptop.category == "entry" %}
+            Entry Level
+        {% elif laptop.category == "mid" %}
+            Mid End
+        {% elif laptop.category == "high" %}
+            High End
+        {% endif %}
+    </td>
+    <td>{{ laptop.description|default:"-" }}</td> <!-- deskripsi -->
+    <td>Rp {{ laptop.price_formatted }}</td>
+    <td>{{ laptop.stock }}</td>
+    <td>
+        <a class="button" href="{% url 'booking' laptop.id %}">Booking</a>
+    </td>
+</tr>
+{% endfor %}
+</table>
+
 
     <a class="back-home" href="{% url 'home' %}">Kembali ke Home</a>
 </body>

@@ -13,12 +13,14 @@ class Laptop(models.Model):
     price_per_day = models.DecimalField(max_digits=8, decimal_places=2)
     stock = models.PositiveIntegerField(default=0)
     image = models.ImageField(upload_to='laptops/', null=True, blank=True)
+    description = models.TextField(null=True, blank=True)  # field deskripsi baru
 
     def price_formatted(self):
         return "{:,.0f}".format(self.price_per_day).replace(",", ".")
 
     def __str__(self):
         return f"{self.brand} {self.name}"
+
 
 class Booking(models.Model):
     laptop = models.ForeignKey(Laptop, on_delete=models.CASCADE)
