@@ -1,7 +1,7 @@
 1. Buat folder baru. Contoh: ***mkdir project***
 2. Masuk ke folder project. ***cd project/***
 3. Clone repositori ini. ***git clone https://github.com/i1khwan/rental_laptop.git***
-4. Masuk ke folder rental_laptop. cd rental_laptop
+4. Masuk ke folder rental_laptop. ***cd rental_laptop***
 5. Aktifkan virtual environment. ***source myenv/bin/activate***
 6. Install paket yang diperlukan. ***pip install -r requirements.txt***
 7. Cek file setting.py. Buat tabel rental_laptop pada mysql. Sesuaikan user, password, dan port database.
