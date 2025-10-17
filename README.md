@@ -1,5 +1,6 @@
 1. Buat folder baru. Contoh: ***mkdir project***
 2. Masuk ke folder project. ***cd project/***
+   Buat virtual environment. ***python3 -m venv myenv***
 3. Clone repositori ini. ***git clone https://github.com/i1khwan/rental_laptop.git***
 4. Masuk ke folder rental_laptop. ***cd rental_laptop***
 5. Aktifkan virtual environment. ***source myenv/bin/activate***
